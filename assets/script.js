@@ -33,17 +33,7 @@ document.getElementById("btn_left").addEventListener("click", function () {
 		index = slides.length - 1
 	}
 
-
-	document.getElementById("tagLine").innerHTML = slides[index].tagLine
-	document.querySelector(".banner-img").src = "./assets/images/slideshow/" + slides[index].image
-
-	for (let j = 0; j < slides.length; j++) {
-		const element = document.querySelectorAll(".dot")[j];
-		element.classList.remove('dot_selected')
-	}
-
-	document.querySelectorAll(".dot")[index].classList.add('dot_selected')
-
+	moveSlide()
 })
 
 
@@ -57,6 +47,10 @@ document.getElementById("btn_right").addEventListener("click", function () {
 		index = 0
 	}
 
+	moveSlide()
+})
+
+function moveSlide() {
 	document.querySelector(".banner-img").src = "./assets/images/slideshow/" + slides[index].image
 	document.getElementById("tagLine").innerHTML = slides[index].tagLine
 
@@ -66,12 +60,7 @@ document.getElementById("btn_right").addEventListener("click", function () {
 	}
 
 	document.querySelectorAll(".dot")[index].classList.add('dot_selected')
-})
-
-console.log(document.querySelectorAll(".dot"));
-console.log(document.querySelector(".dot"));
-
-
+}
 
 function addPagination() {
 
@@ -96,14 +85,8 @@ for (let i = 0; i < listeBaliseBtn.length; i++) {
 	const baliseBtn = listeBaliseBtn[i];
 	baliseBtn.addEventListener("click", function () {
 		index = i
-		document.querySelector(".banner-img").src = "./assets/images/slideshow/" + slides[i].image
-		document.getElementById("tagLine").innerHTML = slides[i].tagLine
-
-		for (let j = 0; j < slides.length; j++) {
-			const element = document.querySelectorAll(".dot")[j];
-			element.classList.remove('dot_selected')
-		}
-		this.classList.add('dot_selected')
+		
+		moveSlide()
 	})
 }
 
