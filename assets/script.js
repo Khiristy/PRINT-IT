@@ -24,7 +24,7 @@
 				image: "slide3.jpg",
 				tagLine: "Grand choix de couleurs <span>de CMJN aux pantones</span>"
 			},
-			
+
 			{
 				image: "slide4.png",
 				tagLine: "Autocollants <span>avec découpe laser sur mesure</span>"
@@ -49,7 +49,7 @@
 	
 		events() {
 	
-			document.getElementById("arrowLeft").addEventListener("click", () => {
+			this.arrowLeft.addEventListener("click", () => {
 				if (this.index > 0) {
 					this.index = this.index - 1
 					console.log(this.index);
@@ -61,7 +61,7 @@
 				this.moveSlide()
 			})
 	
-			document.getElementById("arrowRight").addEventListener("click", () => {
+			this.arrowRight.addEventListener("click", () => {
 				if (this.index < this.slides.length - 1) {
 					this.index = this.index + 1
 					console.log(this.index);
